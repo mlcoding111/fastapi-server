@@ -2,16 +2,16 @@ from typing import Optional
 
 from fastapi import FastAPI
 from .routers.users import router as users_router
-from .config import settings
+from .config import get_settings
 
 # FastAPI instance
 app = FastAPI()
 
 # Debugging
-print(f"DATABASE_URL: {settings.DATABASE_URL}")
-print(f"SECRET_KEY: {settings.SECRET_KEY}")
-print(f"ALGORITHM: {settings.ALGORITHM}")
-print(f"ACCESS_TOKEN_EXPIRES_IN: {settings.ACCESS_TOKEN_EXPIRES_IN}")
+print(f"DATABASE_URL: {get_settings().DATABASE_URL}")
+print(f"SECRET_KEY: {get_settings().SECRET_KEY}")
+print(f"ALGORITHM: {get_settings().ALGORITHM}")
+print(f"ACCESS_TOKEN_EXPIRES_IN: {get_settings().ACCESS_TOKEN_EXPIRES_IN}")
 
 # Routes
 app.include_router(users_router, prefix="", tags=["users"])
