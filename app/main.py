@@ -16,6 +16,8 @@ print(f"ACCESS_TOKEN_EXPIRES_IN: {settings.ACCESS_TOKEN_EXPIRES_IN}")
 # Routes
 app.include_router(users_router, prefix="", tags=["users"])
 
+
+
 # @app.get("/")
 # async def root():
 #     return {"message": "Hello World"}
