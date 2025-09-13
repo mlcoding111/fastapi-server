@@ -10,10 +10,10 @@ class User(BaseModel):
     email = Column(String, unique=True, index=True)
     password = Column(String)
 
-    def __init__(self, name: str, email: str, password: str):
-        self.name = name
-        self.email = email
-        self.password = password
+    # def __init__(self, name: str, email: str, password: str):
+    #     self.name = name
+    #     self.email = email
+    #     self.password = password
 
 # Validate the difference between BaseModel and Base
 # class User(Base):
