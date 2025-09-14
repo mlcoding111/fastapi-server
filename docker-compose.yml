@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  db:
+    build: 
+      context: .        # look for Dockerfile in current directory
+      dockerfile: Dockerfile
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"  # expose container db on host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
