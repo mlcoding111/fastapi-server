@@ -3,6 +3,7 @@ from typing import Optional
 from fastapi import FastAPI
 from .routers.users import router as users_router
 from .config import get_settings
+from .routers.ai import router as ai_router
 
 # FastAPI instance
 app = FastAPI()
@@ -15,8 +16,7 @@ print(f"ACCESS_TOKEN_EXPIRES_IN: {get_settings().ACCESS_TOKEN_EXPIRES_IN}")
 
 # Routes
 app.include_router(users_router, prefix="", tags=["users"])
-
-
+app.include_router(ai_router, prefix="", tags=["ai"])
 
 # @app.get("/")
 # async def root():

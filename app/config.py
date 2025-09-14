@@ -15,6 +15,9 @@ class Settings(BaseSettings):
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRES_IN: int
 
+    # OpenAI Configuration
+    OPENAI_API_KEY: str
+
 settings = Settings()
 
 @lru_cache()
