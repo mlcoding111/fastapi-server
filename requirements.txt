@@ -10,3 +10,5 @@ pytest
 httpx
 pydantic-settings
 PyPDF2
+openai
+numpy
