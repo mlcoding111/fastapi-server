@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from .routers.users import router as users_router
 from .config import get_settings
 from .routers.ai import router as ai_router
+from fastapi.middleware.cors import CORSMiddleware
 
 # FastAPI instance
 app = FastAPI()
@@ -13,6 +14,14 @@ print(f"DATABASE_URL: {get_settings().DATABASE_URL}")
 print(f"SECRET_KEY: {get_settings().SECRET_KEY}")
 print(f"ALGORITHM: {get_settings().ALGORITHM}")
 print(f"ACCESS_TOKEN_EXPIRES_IN: {get_settings().ACCESS_TOKEN_EXPIRES_IN}")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Routes
 app.include_router(users_router, prefix="", tags=["users"])
