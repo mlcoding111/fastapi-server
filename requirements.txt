@@ -12,3 +12,4 @@ pydantic-settings
 PyPDF2
 openai
 numpy
+alembic
