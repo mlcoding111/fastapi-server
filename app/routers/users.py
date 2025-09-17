@@ -17,4 +17,7 @@ mock_users = [
 
 @router.get("/users/")
 def get_users():
+    x: str = 3
+
+    print(x)
     return mock_users
