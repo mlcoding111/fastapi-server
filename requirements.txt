@@ -14,3 +14,4 @@ openai
 numpy
 python-jose[cryptography]
 authlib==1.2.1
+fastapi-sessions

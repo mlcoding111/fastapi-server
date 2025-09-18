@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     # OAuth Configuration
     GOOGLE_CLIENT_ID: str
-    GOOGLE_SECRET: str
+    GOOGLE_CLIENT_SECRET: str
     GOOGLE_CALLBACK_URL: str
 
     # JWT Configuration
