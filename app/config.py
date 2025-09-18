@@ -18,6 +18,16 @@ class Settings(BaseSettings):
     # OpenAI Configuration
     OPENAI_API_KEY: str
 
+    # OAuth Configuration
+    GOOGLE_CLIENT_ID: str
+    GOOGLE_SECRET: str
+    GOOGLE_CALLBACK_URL: str
+
+    # JWT Configuration
+    JWT_SECRET_KEY: str
+    JWT_ALGORITHM: str
+    JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int
+
 settings = Settings()
 
 @lru_cache()
