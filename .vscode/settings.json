@@ -1,0 +1,4 @@
+{
+    "python.defaultInterpreterPath": "/home/kenny/projects/fastapi-server/fastapi-server/.venv/bin/python",
+    "python.venvPath": "/home/kenny/projects/fastapi-server/fastapi-server"
+  }
