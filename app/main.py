@@ -4,7 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer
 from typing import Annotated
 
-
 from .routers.ai import router as ai_router
 from .routers.auth import router as auth_router
 from .routers.users import router as users_router
@@ -26,16 +25,7 @@ app.add_middleware(
 async def read_items(token: Annotated[str, Depends(oauth2_scheme)]):
     return {"token": token}
 
-
 # Routes
 app.include_router(users_router, prefix="", tags=["users"])
 app.include_router(ai_router, prefix="", tags=["ai"])
 # app.include_router(auth_router, prefix="", tags=["auth"])
-
-
-# Debugging
-# app.add_middleware(SessionMiddleware, secret_key=get_settings().JWT_SECRET_KEY)
-print(f"DATABASE_URL: {get_settings().DATABASE_URL}")
-print(f"SECRET_KEY: {get_settings().SECRET_KEY}")
-print(f"ALGORITHM: {get_settings().ALGORITHM}")
-print(f"ACCESS_TOKEN_EXPIRES_IN: {get_settings().ACCESS_TOKEN_EXPIRES_IN}")
