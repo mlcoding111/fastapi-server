@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
-from repositories.user_repository import UserRepository
-from services.jwt_service import JWTService
-from models.user import User
+from app.repositories.user_repository import UserRepository
+from app.services.jwt_service import JWTService
+from app.models.user import User
 from typing import Optional
 
 class AuthService:
