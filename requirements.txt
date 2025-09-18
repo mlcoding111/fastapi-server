@@ -12,4 +12,5 @@ pydantic-settings
 PyPDF2
 openai
 numpy
-alembic
+python-jose[cryptography]
+authlib==1.2.1
