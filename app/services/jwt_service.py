@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 from jose import JWTError, jwt
 from app.config import settings
+from datetime import timezone
 
 class JWTService:
     @staticmethod
@@ -9,12 +10,9 @@ class JWTService:
         to_encode = data.copy()
         
         if expires_delta:
-            expire = datetime.utcnow() + expires_delta
+            expire = datetime.now(timezone.utc) + expires_delta
         else:
-            expire = datetime.utcnow() + timedelta(
-                minutes=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES
-            )
-        
+            expire = datetime.now(timezone.utc) + timedelta(minutes=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES)
         to_encode.update({"exp": expire})
         encoded_jwt = jwt.encode(
             to_encode, 
@@ -22,7 +20,7 @@ class JWTService:
             algorithm=settings.JWT_ALGORITHM
         )
         return encoded_jwt
-    
+
     @staticmethod
     def verify_token(token: str) -> Optional[dict]:
         try:
