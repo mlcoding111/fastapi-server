@@ -3,6 +3,9 @@ from app.repositories.user_repository import UserRepository
 from app.services.jwt_service import JWTService
 from app.models.user import User
 from typing import Optional
+from passlib.context import CryptContext
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 class AuthService:
     def __init__(self, db: Session):
@@ -52,3 +55,11 @@ class AuthService:
             return None
             
         return self.user_repo.get_user_by_id(int(user_id))
+
+    @staticmethod
+    def verify_password(plain_password, hashed_password):
+        return pwd_context.verify(plain_password, hashed_password)
+
+    @staticmethod
+    def get_password_hash(password):
+        return pwd_context.hash(password)
